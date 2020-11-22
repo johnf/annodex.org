@@ -1,0 +1,8 @@
+entryPoints:
+  web:
+    address: :3000
+
+providers:
+  file:
+    filename: /etc/traefik/file.yaml
+    watch: true

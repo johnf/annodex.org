@@ -1,0 +1,99 @@
+version: '3'
+
+services:
+  traefik:
+    container_name: traefik
+    hostname: traefik
+    image: traefik:latest
+    volumes:
+      - ./traefik/traefik.yaml:/etc/traefik/traefik.yaml
+      - ./traefik/file.yaml:/etc/traefik/file.yaml
+    #links:
+    #- lca2018_mmm
+    ports:
+      - 3000:3000/tcp
+
+  mmm:
+    container_name: mmm
+    hostname: mmm
+    image: php:5.3-apache
+    volumes:
+      - ./mmm:/var/www/html
+  lca2008_mmm:
+    container_name: lca2008_mmm
+    hostname: lca2008_mmm
+    image: php:5.3-apache
+    volumes:
+      - ./lca2008_mmm:/var/www/html
+  lca2009_mmm:
+    container_name: lca2009_mmm
+    hostname: lca2009_mmm
+    image: php:5.3-apache
+    volumes:
+      - ./lca2009_mmm:/var/www/html
+  lca2010_mmm:
+    container_name: lca2010_mmm
+    hostname: lca2010_mmm
+    image: php:5.3-apache
+    volumes:
+      - ./lca2010_mmm:/var/www/html
+  lca2011_mmm:
+    container_name: lca2011_mmm
+    hostname: lca2011_mmm
+    image: php:5.3-apache
+    volumes:
+      - ./lca2011_mmm:/var/www/html
+  lca2012_mmm:
+    container_name: lca2012_mmm
+    hostname: lca2012_mmm
+    image: php:5.3-apache
+    volumes:
+      - ./lca2012_mmm:/var/www/html
+  lca2013_mmm:
+    container_name: lca2013_mmm
+    hostname: lca2013_mmm
+    image: php:5.3-apache
+    volumes:
+      - ./lca2013_mmm:/var/www/html
+  lca2014_mmm:
+    container_name: lca2014_mmm
+    hostname: lca2014_mmm
+    image: php:5.3-apache
+    volumes:
+      - ./lca2014_mmm:/var/www/html
+  lca2015_mmm:
+    container_name: lca2015_mmm
+    hostname: lca2015_mmm
+    image: php:5.3-apache
+    volumes:
+      - ./lca2015_mmm:/var/www/html
+  lca2016_mmm:
+    container_name: lca2016_mmm
+    hostname: lca2016_mmm
+    image: php:5.3-apache
+    volumes:
+      - ./lca2016_mmm:/var/www/html
+  lca2017_mmm:
+    container_name: lca2017_mmm
+    hostname: lca2017_mmm
+    image: php:5.3-apache
+    volumes:
+      - ./lca2017_mmm:/var/www/html
+  lca2018_mmm:
+    container_name: lca2018_mmm
+    hostname: lca2018_mmm
+    image: php:5.3-apache
+    volumes:
+      - ./lca2018_mmm:/var/www/html
+  lca2019_loca:
+    container_name: lca2019_loca
+    hostname: lca2019_loca
+    image: php:5.3-apache
+    volumes:
+      - ./lca2019_loca:/var/www/html
+  lca2020_cam:
+    container_name: lca2020_cam
+    hostname: lca2020_cam
+    image: php:5.3-apache
+    volumes:
+      - ./lca2020_cam:/var/www/html

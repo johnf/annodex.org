@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+docker-compose up -d
+rm -rf build
+mkdir build
+cd build
+wget -r -k -np -p -l 0 http://localhost:3000 --html-extension
+cd localhost:3000
+aws s3 sync . s3://annodex.org --delete --acl public-read
+echo > index.html
+aws s3api put-object --bucket annodex.org --key events/index.html --body index.html --website-redirect-location / --acl public-read
+rm index.html

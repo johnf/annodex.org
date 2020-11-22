@@ -1,0 +1,149 @@
+http:
+  middlewares:
+    strip:
+      stripPrefixRegex:
+        regex:
+          - "(/events/lca20[0-9]+_mmm)|(/mmm)"
+    redirect:
+      redirectRegex:
+        regex: "^http://localhost:3000/events$"
+        replacement: "http://localhost:3000/"
+
+  routers:
+    front:
+      rule: Path(`/events`)
+      service: noop
+      middlewares:
+        - redirect
+    mmm:
+      rule: PathPrefix(`/`)
+      service: mmm
+      middlewares:
+        - strip
+    lca2008_mmmm:
+      rule: PathPrefix(`/events/lca2008_mmm`)
+      service: lca2008_mmm
+      middlewares:
+        - strip
+    lca2009_mmmm:
+      rule: PathPrefix(`/events/lca2009_mmm`)
+      service: lca2009_mmm
+      middlewares:
+        - strip
+    lca2010_mmmm:
+      rule: PathPrefix(`/events/lca2010_mmm`)
+      service: lca2010_mmm
+      middlewares:
+        - strip
+    lca2011_mmmm:
+      rule: PathPrefix(`/events/lca2011_mmm`)
+      service: lca2011_mmm
+      middlewares:
+        - strip
+    lca2012_mmmm:
+      rule: PathPrefix(`/events/lca2012_mmm`)
+      service: lca2012_mmm
+      middlewares:
+        - strip
+    lca2013_mmmm:
+      rule: PathPrefix(`/events/lca2013_mmm`)
+      service: lca2013_mmm
+      middlewares:
+        - strip
+    lca2014_mmmm:
+      rule: PathPrefix(`/events/lca2014_mmm`)
+      service: lca2014_mmm
+      middlewares:
+        - strip
+    lca2015_mmmm:
+      rule: PathPrefix(`/events/lca2015_mmm`)
+      service: lca2015_mmm
+      middlewares:
+        - strip
+    lca2016_mmmm:
+      rule: PathPrefix(`/events/lca2016_mmm`)
+      service: lca2016_mmm
+      middlewares:
+        - strip
+    lca2017_mmmm:
+      rule: PathPrefix(`/events/lca2017_mmm`)
+      service: lca2017_mmm
+      middlewares:
+        - strip
+    lca2018_mmmm:
+      rule: PathPrefix(`/events/lca2018_mmm`)
+      service: lca2018_mmm
+      middlewares:
+        - strip
+    lca2019_loca:
+      rule: PathPrefix(`/events/lca2019_loca`)
+      service: lca2019_loca
+      middlewares:
+        - strip
+    lca2020_cam:
+      rule: PathPrefix(`/events/lca2020_cam`)
+      service: lca2020_cam
+      middlewares:
+        - strip
+
+  services:
+    noop:
+      loadBalancer:
+        servers:
+        - url: https://127.0.0.1
+    mmm:
+      loadBalancer:
+        servers:
+        - url: http://mmm
+    lca2008_mmm:
+      loadBalancer:
+        servers:
+        - url: http://lca2008_mmm
+    lca2009_mmm:
+      loadBalancer:
+        servers:
+        - url: http://lca2009_mmm
+    lca2010_mmm:
+      loadBalancer:
+        servers:
+        - url: http://lca2010_mmm
+    lca2011_mmm:
+      loadBalancer:
+        servers:
+        - url: http://lca2011_mmm
+    lca2012_mmm:
+      loadBalancer:
+        servers:
+        - url: http://lca2012_mmm
+    lca2013_mmm:
+      loadBalancer:
+        servers:
+        - url: http://lca2013_mmm
+    lca2014_mmm:
+      loadBalancer:
+        servers:
+        - url: http://lca2014_mmm
+    lca2015_mmm:
+      loadBalancer:
+        servers:
+        - url: http://lca2015_mmm
+    lca2016_mmm:
+      loadBalancer:
+        servers:
+        - url: http://lca2016_mmm
+    lca2017_mmm:
+      loadBalancer:
+        servers:
+        - url: http://lca2017_mmm
+    lca2018_mmm:
+      loadBalancer:
+        servers:
+        - url: http://lca2018_mmm
+    lca2019_loca:
+      loadBalancer:
+        servers:
+        - url: http://lca2019_loca
+    lca2020_cam:
+      loadBalancer:
+        servers:
+        - url: http://lca2020_cam
